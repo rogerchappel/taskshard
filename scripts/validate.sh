@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -uo pipefail
 
 echo "=== taskshard: validation ==="
 cd "$(dirname "$0")/.."
@@ -11,26 +11,26 @@ check() {
   local desc="$1"
   shift
   echo -n "  $desc: "
-  if "$@" > /dev/null 2>&1; then
+  if eval "$@" > /dev/null 2>&1; then
     echo "✅ PASS"
-    ((PASS++))
+    PASS=$((PASS + 1))
   else
     echo "❌ FAIL"
-    ((FAIL++))
+    FAIL=$((FAIL + 1))
   fi
 }
 
 echo "-- Type check --"
-check "TypeScript compilation" npx tsc --noEmit
+check "TypeScript compilation" "npx tsc --noEmit"
 
 echo "-- Tests --"
-check "Unit tests" npm test
+check "Unit tests" "npm test"
 
 echo "-- Smoke --"
-check "Smoke test" bash scripts/smoke.sh
+check "Smoke test" "bash scripts/smoke.sh"
 
 echo "-- Package --"
-check "npm pack dry-run" npm pack --dry-run
+check "npm pack dry-run" "npm pack --dry-run"
 
 echo ""
 echo "Validation results: $PASS passed, $FAIL failed"
