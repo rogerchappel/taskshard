@@ -1,0 +1,61 @@
+{
+  "name": "taskshard",
+  "version": "0.1.0",
+  "description": "Split Markdown task plans into safe parallel agent work packets with ownership boundaries and verification gates.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "taskshard": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "node --test dist/test/*.test.js",
+    "check": "tsc --noEmit",
+    "lint": "eslint src/ test/ --ext .ts",
+    "smoke": "bash scripts/smoke.sh",
+    "release:check": "npm run build && npm test && npm run smoke && npm pack --dry-run",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "tasks",
+    "agents",
+    "orchestration",
+    "cli",
+    "parallel",
+    "sharding",
+    "markdown",
+    "oss",
+    "multi-agent"
+  ],
+  "author": "Roger Chappel",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerchappel/taskshard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/taskshard/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/taskshard#readme",
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "eslint": "^9.16.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
