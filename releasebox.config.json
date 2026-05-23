@@ -1,0 +1,17 @@
+{
+  "name": "taskshard",
+  "type": "cli",
+  "packageManager": "npm",
+  "checks": [
+    "build",
+    "test",
+    "smoke",
+    "pack"
+  ],
+  "scripts": {
+    "build": "npm run build",
+    "test": "npm test",
+    "smoke": "bash scripts/smoke.sh",
+    "pack": "npm pack --dry-run"
+  }
+}
