@@ -1,0 +1,262 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-05-23T09:07:19.735Z",
+  "sourceFile": "/Users/roger/Developer/my-opensource/taskshard/test/fixtures/simple-tasks.md",
+  "shards": [
+    {
+      "id": "shard-1",
+      "title": "API Layer",
+      "description": "Shard containing 4 tasks (3 remaining) with focus: Set up Express server boilerplate, Add health check endpoint, Create package.json with dependencies...",
+      "tasks": [
+        {
+          "id": "task-1-set-up-express-server-boilerpl",
+          "title": "Set up Express server boilerplate",
+          "heading": "API Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "alice",
+          "dependsOn": [],
+          "files": [],
+          "verification": null,
+          "priority": null,
+          "raw": "- [ ] Set up Express server boilerplate @alice"
+        },
+        {
+          "id": "task-2-add-health-check-endpoint",
+          "title": "Add health check endpoint",
+          "heading": "API Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "alice",
+          "dependsOn": [],
+          "files": [
+            "src/server.ts"
+          ],
+          "verification": "npm test",
+          "priority": null,
+          "raw": "- [ ] Add health check endpoint @alice [files: src/server.ts] [verify: npm test]"
+        },
+        {
+          "id": "task-3-create-package-json-with-depen",
+          "title": "Create package.json with dependencies",
+          "heading": "API Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": true,
+          "owner": null,
+          "dependsOn": [],
+          "files": [],
+          "verification": null,
+          "priority": null,
+          "raw": "- [x] Create package.json with dependencies"
+        },
+        {
+          "id": "task-4-configure-typescript-build-pip",
+          "title": "Configure TypeScript build pipeline",
+          "heading": "API Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": null,
+          "dependsOn": [
+            "task-3-create-package-json-with-dependencies"
+          ],
+          "files": [
+            "tsconfig.json"
+          ],
+          "verification": "npm run build",
+          "priority": null,
+          "raw": "- [ ] Configure TypeScript build pipeline [files: tsconfig.json] [depends-on: task-3-create-package-json-with-dependencies] [verify: npm run build]"
+        }
+      ],
+      "filesTouched": [
+        "src/server.ts",
+        "tsconfig.json"
+      ],
+      "dependsOnShards": [],
+      "canRunInParallel": true,
+      "estimatedOrder": 1,
+      "conflicts": [
+        {
+          "type": "orphaned-dependency",
+          "shard1": "shard-1",
+          "details": "Task task-4-configure-typescript-build-pip depends on task-3-create-package-json-with-dependencies, which does not exist",
+          "severity": "error"
+        }
+      ],
+      "agentPrompt": "# Assignment: API Layer\n\n## Shard ID\nshard-1\n\n## Description\nShard containing 4 tasks (3 remaining) with focus: Set up Express server boilerplate, Add health check endpoint, Create package.json with dependencies...\n\n## Tasks\n- [ ] Set up Express server boilerplate\n- [ ] Add health check endpoint [files: src/server.ts] [verify: npm test]\n- [ ] Configure TypeScript build pipeline [files: tsconfig.json] [verify: npm run build]\n\n## Files You May Touch\n- `src/server.ts`\n- `tsconfig.json`\n\n## Dependencies\nNo dependencies. This shard can start immediately.\n\n\n## Warnings\n- **ERROR**: Task task-4-configure-typescript-build-pip depends on task-3-create-package-json-with-dependencies, which does not exist\n\n✅ This shard can run in parallel with other independent shards.\n"
+    },
+    {
+      "id": "shard-2",
+      "title": "Database Layer",
+      "description": "Shard containing 3 tasks (2 remaining) with focus: Set up PostgreSQL connection pool, Write migration runner script, Install pg and drizzle-orm dependencies",
+      "tasks": [
+        {
+          "id": "task-5-set-up-postgresql-connection-p",
+          "title": "Set up PostgreSQL connection pool",
+          "heading": "Database Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "bob",
+          "dependsOn": [],
+          "files": [
+            "src/db/pool.ts"
+          ],
+          "verification": null,
+          "priority": "high",
+          "raw": "- [ ] Set up PostgreSQL connection pool @bob [files: src/db/pool.ts] [priority: high]"
+        },
+        {
+          "id": "task-6-write-migration-runner-script",
+          "title": "Write migration runner script",
+          "heading": "Database Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "bob",
+          "dependsOn": [],
+          "files": [
+            "scripts/migrate.ts",
+            "src/db/migrations/"
+          ],
+          "verification": null,
+          "priority": null,
+          "raw": "- [ ] Write migration runner script @bob [files: scripts/migrate.ts, src/db/migrations/]"
+        },
+        {
+          "id": "task-7-install-pg-and-drizzle-orm-dep",
+          "title": "Install pg and drizzle-orm dependencies",
+          "heading": "Database Layer",
+          "headingLevel": 2,
+          "description": "",
+          "checked": true,
+          "owner": null,
+          "dependsOn": [],
+          "files": [],
+          "verification": null,
+          "priority": null,
+          "raw": "- [x] Install pg and drizzle-orm dependencies"
+        }
+      ],
+      "filesTouched": [
+        "scripts/migrate.ts",
+        "src/db/migrations/",
+        "src/db/pool.ts"
+      ],
+      "dependsOnShards": [],
+      "canRunInParallel": true,
+      "estimatedOrder": 2,
+      "conflicts": [],
+      "agentPrompt": "# Assignment: Database Layer\n\n## Shard ID\nshard-2\n\n## Description\nShard containing 3 tasks (2 remaining) with focus: Set up PostgreSQL connection pool, Write migration runner script, Install pg and drizzle-orm dependencies\n\n## Tasks\n- [ ] Set up PostgreSQL connection pool [files: src/db/pool.ts]\n- [ ] Write migration runner script [files: scripts/migrate.ts, src/db/migrations/]\n\n## Files You May Touch\n- `scripts/migrate.ts`\n- `src/db/migrations/`\n- `src/db/pool.ts`\n\n## Dependencies\nNo dependencies. This shard can start immediately.\n\n\n\n✅ This shard can run in parallel with other independent shards.\n"
+    },
+    {
+      "id": "shard-3",
+      "title": "Frontend",
+      "description": "Shard containing 3 tasks (3 remaining) with focus: Create React app shell, Set up routing with React Router, Add API client with retry logic",
+      "tasks": [
+        {
+          "id": "task-8-create-react-app-shell",
+          "title": "Create React app shell",
+          "heading": "Frontend",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "carol",
+          "dependsOn": [],
+          "files": [
+            "src/frontend/"
+          ],
+          "verification": null,
+          "priority": null,
+          "raw": "- [ ] Create React app shell @carol [files: src/frontend/]"
+        },
+        {
+          "id": "task-9-set-up-routing-with-react-rout",
+          "title": "Set up routing with React Router",
+          "heading": "Frontend",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "carol",
+          "dependsOn": [
+            "task-7-create-react-app-shell"
+          ],
+          "files": [
+            "src/frontend/App.tsx",
+            "src/frontend/routes.tsx"
+          ],
+          "verification": null,
+          "priority": null,
+          "raw": "- [ ] Set up routing with React Router @carol [files: src/frontend/App.tsx, src/frontend/routes.tsx] [depends-on: task-7-create-react-app-shell]"
+        },
+        {
+          "id": "task-10-add-api-client-with-retry-logi",
+          "title": "Add API client with retry logic",
+          "heading": "Frontend",
+          "headingLevel": 2,
+          "description": "",
+          "checked": false,
+          "owner": "alice",
+          "dependsOn": [
+            "task-2-add-health-check-endpoint"
+          ],
+          "files": [
+            "src/api/client.ts"
+          ],
+          "verification": null,
+          "priority": null,
+          "raw": "- [ ] Add API client with retry logic @alice [files: src/api/client.ts] [depends-on: task-2-add-health-check-endpoint]"
+        }
+      ],
+      "filesTouched": [
+        "src/api/client.ts",
+        "src/frontend/",
+        "src/frontend/App.tsx",
+        "src/frontend/routes.tsx"
+      ],
+      "dependsOnShards": [
+        "shard-1"
+      ],
+      "canRunInParallel": false,
+      "estimatedOrder": 3,
+      "conflicts": [
+        {
+          "type": "orphaned-dependency",
+          "shard1": "shard-3",
+          "details": "Task task-9-set-up-routing-with-react-rout depends on task-7-create-react-app-shell, which does not exist",
+          "severity": "error"
+        }
+      ],
+      "agentPrompt": "# Assignment: Frontend\n\n## Shard ID\nshard-3\n\n## Description\nShard containing 3 tasks (3 remaining) with focus: Create React app shell, Set up routing with React Router, Add API client with retry logic\n\n## Tasks\n- [ ] Create React app shell [files: src/frontend/]\n- [ ] Set up routing with React Router [files: src/frontend/App.tsx, src/frontend/routes.tsx]\n- [ ] Add API client with retry logic [files: src/api/client.ts]\n\n## Files You May Touch\n- `src/api/client.ts`\n- `src/frontend/`\n- `src/frontend/App.tsx`\n- `src/frontend/routes.tsx`\n\n## Dependencies\nComplete these shards first: shard-1\n\n\n## Warnings\n- **ERROR**: Task task-9-set-up-routing-with-react-rout depends on task-7-create-react-app-shell, which does not exist\n\n⏳ This shard must wait for its dependencies to complete.\n"
+    }
+  ],
+  "conflicts": [
+    {
+      "type": "orphaned-dependency",
+      "shard1": "shard-1",
+      "details": "Task task-4-configure-typescript-build-pip depends on task-3-create-package-json-with-dependencies, which does not exist",
+      "severity": "error"
+    },
+    {
+      "type": "orphaned-dependency",
+      "shard1": "shard-3",
+      "details": "Task task-9-set-up-routing-with-react-rout depends on task-7-create-react-app-shell, which does not exist",
+      "severity": "error"
+    }
+  ],
+  "mergeOrder": [
+    "shard-1",
+    "shard-2",
+    "shard-3"
+  ],
+  "summary": {
+    "totalTasks": 10,
+    "totalShards": 3,
+    "parallelizableShards": 2,
+    "serialShards": 1,
+    "conflictCount": 2
+  }
+}
