@@ -1,0 +1,11 @@
+node_modules/
+src/
+test/
+scripts/
+docs/
+.gitignore
+.eslintrc*
+.prettierrc*
+tsconfig.json
+AGENTS.md
+SECURITY.md
