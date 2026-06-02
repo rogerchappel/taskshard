@@ -15,10 +15,10 @@ for f in "$FIXTURES"/*.md; do
   echo -n "  fixture $name: "
   if $TSX "$ROOT_DIR/src/index.ts" plan "$f" > /dev/null 2>&1; then
     echo "✅ PASS"
-    ((PASS++))
+    PASS=$((PASS + 1))
   else
     echo "❌ FAIL"
-    ((FAIL++))
+    FAIL=$((FAIL + 1))
   fi
 done
 
