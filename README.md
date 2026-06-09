@@ -143,3 +143,14 @@ MIT — see [LICENSE](LICENSE).
 ## Author
 
 Built by [Roger Chappel](https://github.com/rogerchappel) as part of an OSS factory build. Because agents should have safe boundaries.
+
+## Development
+
+Run the same checks locally before opening a PR:
+
+- `npm run check` - tsc --noEmit
+- `npm run lint` - eslint src/ test/ --ext .ts
+- `npm run build` - tsc
+- `npm test` - node --test dist/test/*.test.js
+- `npm run smoke` - bash scripts/smoke.sh
+- `npm run release:check` - npm run build && npm test && npm run smoke && npm pack --dry-run
