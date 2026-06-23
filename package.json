@@ -24,7 +24,7 @@
     "check": "tsc --noEmit",
     "lint": "eslint src/ test/ --ext .ts",
     "smoke": "bash scripts/smoke.sh",
-    "release:check": "npm run build && npm test && npm run smoke && npm run package:smoke",
+    "release:check": "npm run check && npm run build && npm test && npm run smoke && npm run package:smoke",
     "prepare": "npm run build",
     "package:smoke": "npm pack --dry-run"
   },
