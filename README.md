@@ -122,6 +122,10 @@ See `test/fixtures/` for example Markdown task files:
 - `dependency-tasks.md` — heavy cross-shard dependency chains
 - `malformed-tasks.md` — edge cases and partial markup
 
+## Safety Boundaries
+
+Task shards are planning artifacts, not permission grants. Review generated file ownership, dependency order, and verification commands before handing shards to agents, and keep destructive operations, credentials, production deploys, and broad refactors behind explicit human approval.
+
 ## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
