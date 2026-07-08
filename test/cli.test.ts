@@ -1,5 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { parseMarkdown, parseHeading, parseCheckboxLine } from '../src/parser/markdown.js';
 import { version } from '../src/version.js';
 
@@ -135,5 +137,20 @@ describe('version', () => {
   it('exports a version string', () => {
     assert.strictEqual(typeof version, 'string');
     assert.ok(version.length > 0);
+  });
+});
+
+describe('built CLI metadata', () => {
+  it('prints help text cleanly', () => {
+    const result = spawnSync(process.execPath, ['dist/src/index.js', '--help'], { encoding: 'utf8' });
+    assert.strictEqual(result.status, 0);
+    assert.match(result.stdout, /Usage: taskshard/);
+  });
+
+  it('prints the package version', () => {
+    const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+    const result = spawnSync(process.execPath, ['dist/src/index.js', '--version'], { encoding: 'utf8' });
+    assert.strictEqual(result.status, 0);
+    assert.strictEqual(result.stdout.trim(), pkg.version);
   });
 });
