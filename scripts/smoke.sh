@@ -10,6 +10,9 @@ FAIL=0
 
 TSX="$ROOT_DIR/node_modules/.bin/tsx"
 
+node "$ROOT_DIR/dist/src/index.js" --help > /dev/null
+node "$ROOT_DIR/dist/src/index.js" --version > /dev/null
+
 for f in "$FIXTURES"/*.md; do
   name=$(basename "$f")
   echo -n "  fixture $name: "
