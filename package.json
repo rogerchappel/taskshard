@@ -10,6 +10,7 @@
   },
   "files": [
     "dist/src",
+    "docs",
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
@@ -26,7 +27,7 @@
     "smoke": "bash scripts/smoke.sh",
     "release:check": "npm run check && npm run build && npm test && npm run smoke && npm run package:smoke",
     "prepare": "npm run build",
-    "package:smoke": "npm pack --dry-run"
+    "package:smoke": "node scripts/package-smoke.mjs"
   },
   "keywords": [
     "tasks",
